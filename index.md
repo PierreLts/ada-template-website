@@ -1,6 +1,6 @@
 ---
 layout: page
-title: MovieKinsey Analytics 2:57
+title: MovieKinsey Analytics
 subtitle: A Consulting Startup for Predicting Movie Success
 cover-img: /assets/img/Picture2.png
 thumbnail-img: /assets/img/Picture2.png
@@ -22,7 +22,7 @@ js:
   root.render(<HeaderLogo />);
 </script>
 
-## **Introduction**
+# **Introduction** {#introduction}
 
 In the ever-evolving world of cinema, predicting a movie's success has become both an art and a science. At **MKA® (MovieKinsey Analytics®)**, we bring a data-driven approach to help producers, studios, and filmmakers understand what drives a movie’s critical success.
 
@@ -47,11 +47,11 @@ Discover the **data story** behind what makes a movie succeed. Let us guide you 
 
 -----------------
 
-## **Preliminary Analysis and Metric Selection**
+# **Preliminary Analysis and Metric Selection** {#preliminary-analysis}
 
 At **MKA**, every great analysis begins with a solid foundation. To deliver precise and actionable insights for predicting movie success, we start by exploring and structuring our datasets. This **preliminary analysis** enables us to identify key features, understand trends, and establish the metrics that will drive our consulting framework.  
 
-### **Why It Matters**
+## **Why It Matters**
 
 Before diving into detailed modeling, we ensure:  
 - A comprehensive understanding of the data structure.  
@@ -60,9 +60,9 @@ Before diving into detailed modeling, we ensure:
 
 This **preliminary exploration** forms the backbone of our data-driven strategy, setting the stage for the deeper insights that follow. From here, we move forward with confidence, equipped with the metrics that matter most for predicting a movie’s success.
 
-### **The Evolution of Movie Releases**
+## **The Evolution of Movie Releases**
 
-<div id="releases-plot" style="width: 100%; height: 600px;"></div>
+<div id="releases-plot" style="width: 100%; height: 500px;"></div>
 
 Picture this: it’s the early 20th century, the golden age of cinema has just begun. Movies trickled into the public sphere at a measured pace, their production limited by the constraints of technology and resources. But as we move past 1920, the plot begins to shift.
 
@@ -73,9 +73,9 @@ This growth in releases isn’t just a statistic; it sets the stage for everythi
 
 But does quantity translate to quality? Let’s keep the reel rolling.
 
-### **The Story of Revenue: From Modest Beginnings to Box Office Titans**
+## **The Story of Revenue: From Modest Beginnings to Box Office Titans**
 
-<div id="revenue-plot" style="width: 100%; height: 600px;"></div>
+<div id="revenue-plot" style="width: 100%; height: 500px;"></div>
 
 As the movie release curve climbs, so too does its financial counterpart. Revenue — the industry’s heartbeat — has grown near-exponentially, and the reasons are as clear as a perfectly executed plot twist.
 
@@ -85,10 +85,35 @@ What’s driving this growth? A rising number of releases, yes, but also inflati
 
 ---
 
-### *The Nuanced Revenue Landscape: Blockbusters, Indies, and Everything In-Between*
+## *The Nuanced Revenue Landscape: Blockbusters, Indies, and Everything In-Between*
 
-<div id="revenue-stats-plot" style="width: 100%; height: 600px;"></div>
-<div id="revenue-scatter-plot" style="width: 100%; height: 600px;"></div>
+<!-- Plot 1: Revenue Stats -->
+<div id="revenue-stats-plot" style="width: 100%; height: 500px; display: block;">
+  <!-- Content for Revenue Stats Plot -->
+</div>
+
+<!-- Plot 2: Revenue Scatter Plot -->
+<div id="revenue-scatter-plot" style="width: 100%; height: 500px; display: none;">
+  <!-- Content for Revenue Scatter Plot -->
+</div>
+
+<!-- Minimalistic Arrow buttons for navigation -->
+<div style="position: relative; width: 100%; height: 30px;">
+  <!-- Left arrow (Previous) -->
+  <button id="prev-btn-revenue" style="position: absolute; top: 50%; left: 280px; transform: translateY(-50%); background: transparent; border: none; font-size: 36px; color: #FF19B8; font-weight: bold; cursor: pointer; transition: color 0.3s;">
+    &lt;
+  </button>
+  
+  <!-- Text between arrows -->
+<span id="next-plot-revenue" style="position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); font-size: 18px; color: #FF7E1D; font-weight: bold; white-space: nowrap; cursor: pointer;">
+  Next plot
+</span>
+  
+  <!-- Right arrow (Next) -->
+  <button id="next-btn-revenue" style="position: absolute; top: 50%; right: 280px; transform: translateY(-50%); background: transparent; border: none; font-size: 36px; color: #FF19B8; font-weight: bold; cursor: pointer; transition: color 0.3s;">
+    &gt;
+  </button>
+</div>
 
 Here’s where the story takes a fascinating turn. Over the years, the revenue landscape has grown polarized. The variance in box office earnings has never been wider. On one end, we have the colossal success of record-breaking blockbusters. On the other, a rise in lower-budget indie films carving their own niche.
 
@@ -98,18 +123,43 @@ But here’s the twist: while revenue paints a broad picture of financial succes
 
 ---
 
-#### **Why Revenue Isn’t Enough**
+### **Why Revenue Isn’t Enough**
 
 The data tells us this much: the movie industry is growing, financially and creatively. But focusing on revenue alone misses the bigger picture. A movie’s success isn’t just about box office numbers; it’s about emotional connection, cultural impact, and the stories that resonate.
 
 Our analysis doesn’t stop here. While the industry’s financial growth is impressive, we believe there’s more to success than dollars earned. 
 
-### **The Story Behind Movie Ratings: Audience Perception Unmasked**
+## **The Story Behind Movie Ratings: Audience Perception Unmasked**
 
-#### Ratings Analysis
+### Ratings Analysis
 
-<div id="ratings-stats-plot" style="width: 100%; height: 600px;"></div>
-<div id="ratings-scatter-plot" style="width: 100%; height: 600px;"></div>
+<!-- Plot 1: Ratings Stats -->
+<div id="ratings-stats-plot" style="width: 100%; height: 500px; display: block;">
+  <!-- Content for Ratings Stats Plot -->
+</div>
+
+<!-- Plot 2: Ratings Scatter Plot -->
+<div id="ratings-scatter-plot" style="width: 100%; height: 500px; display: none;">
+  <!-- Content for Ratings Scatter Plot -->
+</div>
+
+<!-- Minimalistic Arrow buttons for navigation -->
+<div style="position: relative; width: 100%; height: 30px;">
+  <!-- Left arrow (Previous) -->
+  <button id="prev-btn-ratings" style="position: absolute; top: 50%; left: 280px; transform: translateY(-50%); background: transparent; border: none; font-size: 36px; color: #FF19B8; font-weight: bold; cursor: pointer; transition: color 0.3s;">
+    &lt;
+  </button>
+  
+  <!-- Text between arrows -->
+<span id="next-plot-ratings" style="position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); font-size: 18px; color: #FF7E1D; font-weight: bold; white-space: nowrap; cursor: pointer;">
+  Next plot
+</span>
+  
+  <!-- Right arrow (Next) -->
+  <button id="next-btn-ratings" style="position: absolute; top: 50%; right: 280px; transform: translateY(-50%); background: transparent; border: none; font-size: 36px; color: #FF19B8; font-weight: bold; cursor: pointer; transition: color 0.3s;">
+    &gt;
+  </button>
+</div>
 
 Every movie tells a story, but what about the story told by its ratings? Early on, movie ratings were a bit like untamed scripts — volatile, inconsistent, and shaped by a limited audience. In the industry's early years, ratings swung unpredictably due to sparse viewer feedback. As more people tuned in, these fluctuations smoothed out, creating a consistent, audience-driven metric. 
 
@@ -117,10 +167,36 @@ Today, movie ratings remain a steady guide, capturing audience sentiment indepen
 
 ---
 
-#### Vote Count Analysis
+### Vote Count Analysis
 
-<div id="votes-stats-plot" style="width: 100%; height: 600px;"></div>
-<div id="votes-scatter-plot" style="width: 100%; height: 600px;"></div>
+<!-- Plot 1: Votes Stats -->
+<div id="votes-stats-plot" style="width: 100%; height: 500px; display: block;">
+  <!-- Content for Votes Stats Plot -->
+</div>
+
+<!-- Plot 2: Votes Scatter Plot -->
+<div id="votes-scatter-plot" style="width: 100%; height: 500px; display: none;">
+  <!-- Content for Votes Scatter Plot -->
+</div>
+
+<!-- Minimalistic Arrow buttons for navigation -->
+<div style="position: relative; width: 100%; height: 30px;">
+  <!-- Left arrow (Previous) -->
+  <button id="prev-btn-votes" style="position: absolute; top: 50%; left: 280px; transform: translateY(-50%); background: transparent; border: none; font-size: 36px; color: #FF19B8; font-weight: bold; cursor: pointer; transition: color 0.3s;">
+    &lt;
+  </button>
+  
+  <!-- Text between arrows -->
+  <span id="next-plot-votes" style="position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); font-size: 18px; color: #FF7E1D; font-weight: bold; white-space: nowrap; cursor: pointer;">
+    Next plot
+  </span>
+  
+  <!-- Right arrow (Next) -->
+  <button id="next-btn-votes" style="position: absolute; top: 50%; right: 280px; transform: translateY(-50%); background: transparent; border: none; font-size: 36px; color: #FF19B8; font-weight: bold; cursor: pointer; transition: color 0.3s;">
+    &gt;
+  </button>
+</div>
+
 
 Movie ratings tell us *what* audiences think, but vote counts tell us *how many* people care enough to voice that opinion. Early movies gathered only a handful of votes — cinema was still a niche experience. Over time, the industry grew, audiences expanded, and voting became commonplace.
 
@@ -128,7 +204,7 @@ This surge in engagement wasn’t linear. Certain years saw sudden spikes, likel
 
 ---
 
-### *Defining Success: Beyond Box Office Numbers*
+## *Defining Success: Beyond Box Office Numbers*
 
 What makes a movie truly successful? In our story, success goes beyond the ticket counter. We crafted a success metric that blends quality and popularity:
 
@@ -136,16 +212,42 @@ What makes a movie truly successful? In our story, success goes beyond the ticke
 
 This formula ensures that both a film's approval rating and its audience reach are counted — balancing the art of filmmaking with its global reception.
 
-#### Success Metric in Action
+### Success Metric in Action
 
-<div id="success-stats-plot" style="width: 100%; height: 600px;"></div>
-<div id="success-scatter-plot" style="width: 100%; height: 600px;"></div>
+<!-- Plot 1: Success Stats -->
+<div id="success-stats-plot" style="width: 100%; height: 500px; display: block;">
+  <!-- Content for Success Stats Plot -->
+</div>
+
+<!-- Plot 2: Success Scatter Plot -->
+<div id="success-scatter-plot" style="width: 100%; height: 500px; display: none;">
+  <!-- Content for Success Scatter Plot -->
+</div>
+
+<!-- Minimalistic Arrow buttons for navigation -->
+<div style="position: relative; width: 100%; height: 30px;">
+  <!-- Left arrow (Previous) -->
+  <button id="prev-btn-success" style="position: absolute; top: 50%; left: 280px; transform: translateY(-50%); background: transparent; border: none; font-size: 36px; color: #FF19B8; font-weight: bold; cursor: pointer; transition: color 0.3s;">
+    &lt;
+  </button>
+  
+  <!-- Text between arrows -->
+  <span id="next-plot-success" style="position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); font-size: 18px; color: #FF7E1D; font-weight: bold; white-space: nowrap; cursor: pointer;">
+    Next plot
+  </span>
+  
+  <!-- Right arrow (Next) -->
+  <button id="next-btn-success" style="position: absolute; top: 50%; right: 280px; transform: translateY(-50%); background: transparent; border: none; font-size: 36px; color: #FF19B8; font-weight: bold; cursor: pointer; transition: color 0.3s;">
+    &gt;
+  </button>
+</div>
+
 
 Early cinema was unpredictable. Fewer votes and scattered ratings created erratic success scores. But with time, our metric stabilizes, reflecting how modern movies consistently engage and resonate with large audiences. This trend shows how industry growth parallels increased viewer participation and emotional investment.
 
 ---
 
-#### Success vs. Revenue
+### Success vs. Revenue
 
 <div id="success-revenue-plot" style="width: 100%; height: 600px;"></div>
 
@@ -153,9 +255,9 @@ A quick glance reveals a strong relationship between success and revenue — but
 
 ---
 
-### *The Actor's Journey: Age, Experience, and Cinematic Legacy*
+## *The Actor's Journey: Age, Experience, and Cinematic Legacy*
 
-#### Understanding Actor Trajectories
+### Understanding Actor Trajectories
 
 <div id="actor-age-plot" style="width: 100%; height: 600px;"></div>
 
@@ -170,12 +272,12 @@ By tracking the most experienced actor in each film, we captured a critical piec
 
 -----------------
 
-## **Sentiment Analysis: Understanding Emotional Dynamics**
+# **Sentiment Analysis: Understanding Emotional Dynamics** {#sentiment-analysis}
 
 In storytelling, emotions are key drivers of engagement. To capture the emotional journey of movies, **MovieKinsey Analytics** conducted sentiment analysis on movie plot summaries, leveraging cutting-edge natural language processing models.
 
 
-### **Choosing the Right Sentiment Model**
+## **Choosing the Right Sentiment Model**
 
 We explored two sentiment analysis models:
 
@@ -186,7 +288,7 @@ We explored two sentiment analysis models:
    DistilBERT, a transformer-based language model, excels at capturing nuanced linguistic patterns. However, due to its computational demands, we opted for VADER for a more scalable approach.
 
 
-### **Sentiment Analysis of Movie Plot Summaries Using VADER**
+## **Sentiment Analysis of Movie Plot Summaries Using VADER**
 
 We applied VADER sentiment analysis with the following approach:
 
@@ -296,7 +398,7 @@ By clustering sentiment arcs using **Time-Series KMeans Clustering**, we identif
 
 -----------------
 
-## **Network Analysis: Exploring Actor Collaborations**
+# **Network Analysis: Exploring Actor Collaborations** {#network-analysis}
 
 In this section, we evaluate how **actor collaborations** influence movie success. Using a collaboration network model, we explore relationships between actors based on shared movie appearances.
 
@@ -381,7 +483,7 @@ The global economy affects entertainment consumption. We tracked the **S&P 500 I
 
 -----------------
 
-## **Results and Interpretations: What Drives Success?**
+## **Results and Interpretations: What Drives Success?** {#results}
 
 Combining these factors, we explored their collective influence on a movie’s success. Our model identified six key variables:
 

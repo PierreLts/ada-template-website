@@ -8,7 +8,7 @@ function createReleasesPlot(yearStats, years) {
         mode: 'lines',
         line: {
             color: COLORS.primary,
-            width: 2
+            width: 3
         },
         name: 'Number of Movies'
     };
@@ -26,7 +26,7 @@ function createRevenuePlot(yearStats, years) {
         mode: 'lines',
         line: {
             color: COLORS.secondary,
-            width: 2
+            width: 3
         },
         name: 'Total Box Office Revenue'
     };
@@ -38,15 +38,6 @@ function createRevenuePlot(yearStats, years) {
 
 function createStatsPlot(divId, yearStats, years, field, title, yLabel, logY = false) {
     const stats = years.map(year => calculateStatistics(yearStats[year][field]));
-    
-    const meanTrace = {
-        x: years,
-        y: stats.map(s => s.mean),
-        type: 'scatter',
-        mode: 'lines',
-        name: 'Mean',
-        line: {color: field === 'revenues' ? COLORS.secondary : COLORS.tertiary, width: 3}
-    };
 
     const medianTrace = {
         x: years,
@@ -55,6 +46,15 @@ function createStatsPlot(divId, yearStats, years, field, title, yLabel, logY = f
         mode: 'lines',
         name: 'Median',
         line: {color: COLORS.neutral, width: 3, dash: 'dash'}
+    };
+
+    const meanTrace = {
+        x: years,
+        y: stats.map(s => s.mean),
+        type: 'scatter',
+        mode: 'lines',
+        name: 'Mean',
+        line: {color: field === 'revenues' ? COLORS.secondary : COLORS.tertiary, width: 3}
     };
 
     const stdUpperTrace = {
@@ -78,7 +78,7 @@ function createStatsPlot(divId, yearStats, years, field, title, yLabel, logY = f
     };
 
     Plotly.newPlot(divId, 
-        [stdUpperTrace, stdLowerTrace, meanTrace, medianTrace], 
+        [stdUpperTrace, stdLowerTrace, medianTrace, meanTrace], 
         createPlotlyLayout(title, 'Year', yLabel, logY)
     );
 }
@@ -301,7 +301,7 @@ function createActorAgePlot(characterData) {
             name: 'Mean Occurrences',
             line: {
                 color: '#FF7E1D',
-                width: 3
+                width: 4
             }
         };
 
@@ -343,22 +343,43 @@ function createActorAgePlot(characterData) {
                     x0: 3, x1: 3, 
                     y0: 1, y1: 1000,
                     yref: 'y',
-                    line: { color: 'yellow', width: 1 } 
+                    line: { color: 'cyan', width: 2 } 
                 },
                 { 
                     type: 'line', 
                     x0: 17, x1: 17, 
                     y0: 1, y1: 1000,
                     yref: 'y',
-                    line: { color: 'yellow', width: 1 } 
+                    line: { color: 'cyan', width: 2 } 
                 },
                 // Additional reference lines
                 { 
                     type: 'line', 
-                    x0: 1, x1: 1, 
+                    x0: 2, x1: 2, 
                     y0: 1, y1: 1000,
                     yref: 'y',
-                    line: { color: 'white', width: 0.5, dash: 'dash' } 
+                    line: { color: 'cyan', width: 1, dash: 'dash' } 
+                },
+                { 
+                    type: 'line', 
+                    x0: 4, x1: 4, 
+                    y0: 1, y1: 1000,
+                    yref: 'y',
+                    line: { color: 'cyan', width: 1, dash: 'dash' } 
+                },
+                { 
+                    type: 'line', 
+                    x0: 16, x1: 16, 
+                    y0: 1, y1: 1000,
+                    yref: 'y',
+                    line: { color: 'cyan', width: 1, dash: 'dash' } 
+                },
+                { 
+                    type: 'line', 
+                    x0: 18, x1: 18, 
+                    y0: 1, y1: 1000,
+                    yref: 'y',
+                    line: { color: 'cyan', width: 1, dash: 'dash' } 
                 },
                 // ... (repeat for other vertical lines)
             ],
@@ -378,3 +399,74 @@ function createActorAgePlot(characterData) {
             `Error creating plot: ${error.message}`;
     }
 }
+
+// Assuming the plots are already initialized, we just add the slider functionality
+
+// Revenue Plot Logic
+// Revenue Plot Logic
+let currentRevenuePlot = 0;
+function toggleRevenuePlots() {
+  if (currentRevenuePlot === 0) {
+    document.getElementById('revenue-stats-plot').style.display = 'none';
+    document.getElementById('revenue-scatter-plot').style.display = 'block';
+    currentRevenuePlot = 1;
+  } else {
+    document.getElementById('revenue-stats-plot').style.display = 'block';
+    document.getElementById('revenue-scatter-plot').style.display = 'none';
+    currentRevenuePlot = 0;
+  }
+}
+document.getElementById('prev-btn-revenue').addEventListener('click', toggleRevenuePlots);
+document.getElementById('next-btn-revenue').addEventListener('click', toggleRevenuePlots);
+document.getElementById('next-plot-revenue').addEventListener('click', toggleRevenuePlots); // Added for text
+
+// Ratings Plot Logic
+let currentRatingsPlot = 0;
+function toggleRatingsPlots() {
+  if (currentRatingsPlot === 0) {
+    document.getElementById('ratings-stats-plot').style.display = 'none';
+    document.getElementById('ratings-scatter-plot').style.display = 'block';
+    currentRatingsPlot = 1;
+  } else {
+    document.getElementById('ratings-stats-plot').style.display = 'block';
+    document.getElementById('ratings-scatter-plot').style.display = 'none';
+    currentRatingsPlot = 0;
+  }
+}
+document.getElementById('prev-btn-ratings').addEventListener('click', toggleRatingsPlots);
+document.getElementById('next-btn-ratings').addEventListener('click', toggleRatingsPlots);
+document.getElementById('next-plot-ratings').addEventListener('click', toggleRatingsPlots); // Added for text
+
+// Votes Plot Logic
+let currentVotesPlot = 0;
+function toggleVotesPlots() {
+  if (currentVotesPlot === 0) {
+    document.getElementById('votes-stats-plot').style.display = 'none';
+    document.getElementById('votes-scatter-plot').style.display = 'block';
+    currentVotesPlot = 1;
+  } else {
+    document.getElementById('votes-stats-plot').style.display = 'block';
+    document.getElementById('votes-scatter-plot').style.display = 'none';
+    currentVotesPlot = 0;
+  }
+}
+document.getElementById('prev-btn-votes').addEventListener('click', toggleVotesPlots);
+document.getElementById('next-btn-votes').addEventListener('click', toggleVotesPlots);
+document.getElementById('next-plot-votes').addEventListener('click', toggleVotesPlots); // Added for text
+
+// Success Plot Logic
+let currentSuccessPlot = 0;
+function toggleSuccessPlots() {
+  if (currentSuccessPlot === 0) {
+    document.getElementById('success-stats-plot').style.display = 'none';
+    document.getElementById('success-scatter-plot').style.display = 'block';
+    currentSuccessPlot = 1;
+  } else {
+    document.getElementById('success-stats-plot').style.display = 'block';
+    document.getElementById('success-scatter-plot').style.display = 'none';
+    currentSuccessPlot = 0;
+  }
+}
+document.getElementById('prev-btn-success').addEventListener('click', toggleSuccessPlots);
+document.getElementById('next-btn-success').addEventListener('click', toggleSuccessPlots);
+document.getElementById('next-plot-success').addEventListener('click', toggleSuccessPlots); // Added for text

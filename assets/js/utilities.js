@@ -92,9 +92,9 @@ function processYearlyData(data, startYear = 1920) {
 
 // Color utilities
 const COLORS = {
-    primary: 'lightblue',
-    secondary: 'lightgreen',
-    tertiary: 'orange',
+    primary: '#FF7E1D',
+    secondary: '#FF7E1D',
+    tertiary: '#FF7E1D',
     highlight: 'magenta',
     neutral: 'white'
 };

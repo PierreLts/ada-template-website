@@ -1,45 +1,87 @@
-/* Progress bar container */
-.progress-container {
+.vertical-progress-container {
     position: fixed;
+    top: 50px;
+    right: 0;
+    width: 200px; /* Increased width to accommodate titles */
+    height: 93%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .vertical-progress-bar {
+    position: absolute;
     top: 0;
     right: 0;
     width: 8px;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-    pointer-events: none; /* Ensure it doesn't interfere with clicks */
-}
-
-/* Actual progress bar */
-.progress-bar {
-    width: 100%;
-    height: 0;
-    background: linear-gradient(180deg, #0085A1 0%, #0085A1 100%);
+    height: 0%;
+    background-color: #FF7E1D;
+    transition: height 0.1s ease;
+  }
+  
+  .section-markers {
     position: absolute;
     top: 0;
-    left: 0;
-    transition: height 0.2s ease-out;
-}
-
-/* Adjust position when navbar is present */
-.navbar ~ .container .progress-container {
-    top: 50px; /* Adjust based on your navbar height */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .progress-container {
-        width: 4px;
-    }
-    
-    .navbar ~ .container .progress-container {
-        top: 40px; /* Adjust for mobile navbar height */
-    }
-}
-
-/* Fix for specific template layouts */
-.container-md .progress-container,
-.container .progress-container {
-    position: fixed;
+    right: 8px;
+    width: 180px; /* Wider to accommodate text */
+    height: 100%;
+  }
+  
+  .section-marker {
+    position: absolute;
     right: 0;
-}
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 50px; /* Taller to accommodate text */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding-right: 8px;
+  }
+  
+  .section-marker-line {
+    width: 40px;
+    height: 4px;
+    background-color: rgba(128, 128, 128, 0.3);
+    transition: all 0.2s ease;
+  }
+  
+  .section-marker:hover .section-marker-line,
+  .section-marker.active .section-marker-line {
+    background-color: #FF19B8;
+    width: 50px;
+  }
+  
+  .section-title {
+    position: absolute;
+    right: 60px;
+    color: #666;
+    font-size: 12px;
+    text-align: right;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+  }
+  
+  .section-marker:hover .section-title,
+  .section-marker.active .section-title {
+    color: #FF7E1D;
+    opacity: 1;
+  }
+  
+  /* Style for different heading levels */
+  .section-marker[data-level="h1"] .section-title {
+    font-weight: bold;
+  }
+  
+  .section-marker[data-level="h2"] {
+    padding-right: 20px; /* Indent subsections */
+  }
+  
+  .section-marker[data-level="h2"] .section-marker-line {
+    width: 30px; /* Shorter line for subsections */
+  }
